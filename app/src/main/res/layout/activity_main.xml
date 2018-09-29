@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.adara.yashsd.waterlevelindicator.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_weight="0"
+            android:background="@color/colorPrimaryDark"
+            android:fontFamily="@font/bungee_hairline"
+            android:gravity="center"
+            android:text="W a t e r  L e v e l"
+            android:textColor="@color/colorWhite"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight='0'
+            android:background="@color/colorWaterBlue"
+            android:fontFamily="@font/bungee_hairline"
+            android:gravity="center"
+            android:text="connect"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/button1"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:background="@color/colorWhite">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorWhite"
+                    android:elevation="5dp"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <ViewFlipper
+                        android:id="@+id/viewFlipper"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:autoStart="true"
+                        android:background="#ffffff"
+                        android:flipInterval="750"
+                        android:textAlignment="center">
+
+                    </ViewFlipper>
+
+                    <com.github.lzyzsd.circleprogress.DonutProgress
+                        android:id="@+id/donut_progress"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="15dp"
+                        app:donut_progress="0" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/infoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorWhite"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee_hairline"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Flow rate:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvFlowRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee_hairline"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="L/s"
+                        android:textColor="@color/colorWaterBlue"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorWhiteOff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee_hairline"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Run time:"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvRunTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee_hairline"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="0Min"
+                        android:textColor="@color/colorWaterBlue"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorWhite"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fab"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_power_button" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bungee_hairline"
+                        android:gravity="center"
+                        android:paddingBottom="2dp"
+                        android:paddingTop="5dp"
+                        android:text="Pump status: ON"
+                        android:textColor="@color/colorWaterBlue"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorWhite"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearStartLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingRight="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bungee_hairline"
+                            android:gravity="center"
+                            android:padding="1dp"
+                            android:text="Start time:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTime1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:focusedByDefault="false"
+                            android:fontFamily="@font/bungee_hairline"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:padding="1dp"
+                            android:paddingRight="5dp"
+                            android:shadowColor="@color/colorWaterBlue"
+                            android:text="0000"
+                            android:textColor="@color/colorWaterBlue"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#D3D3D3" />
+
+                    <LinearLayout
+                        android:id="@+id/linearStopLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bungee_hairline"
+                            android:gravity="center"
+                            android:padding="1dp"
+                            android:text="Stop time:"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTime2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:focusedByDefault="false"
+                            android:fontFamily="@font/bungee_hairline"
+                            android:gravity="center"
+                            android:inputType="number"
+                            android:padding="1dp"
+                            android:shadowColor="@color/colorWaterBlue"
+                            android:text="0000"
+                            android:textColor="@color/colorWaterBlue"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#D3D3D3" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight='0'
+                        android:backgroundTint="@color/colorWaterBlue"
+                        android:fontFamily="@font/bungee_hairline"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Set"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorWhite"
+                    android:elevation="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingRight="5dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/bungee_hairline"
+                                android:gravity="center"
+                                android:text="Start for (in MINS):"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tvTime3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:focusedByDefault="false"
+                                android:fontFamily="@font/bungee_hairline"
+                                android:gravity="center"
+                                android:paddingRight="5dp"
+                                android:shadowColor="@color/colorWaterBlue"
+                                android:text="0000"
+                                android:textColor="@color/colorWaterBlue"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/sb1"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:max="200" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#D3D3D3" />
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_weight='0'
+                        android:backgroundTint="@color/colorWaterBlue"
+                        android:fontFamily="@font/bungee_hairline"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Set"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
